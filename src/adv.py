@@ -1,10 +1,11 @@
 from room import Room
+from player import Player
+
 
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+    'outside':  Room("Outside Cave Entrance", """North of you, the cave mount beckons"""),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -20,7 +21,6 @@ to north. The smell of gold permeates the air."""),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
-
 
 # Link rooms together
 
@@ -49,3 +49,68 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+# userInput = 0
+# while userInput != ("x" or "exit" or "Exit" or "X" or "Q" or "q"):
+
+
+#     # Print the intro text
+#     userPrompt = f'>>>'
+#     fancyline = "»»————-------　★　-------————-««"
+#     boringline = "———————————————————————————————"
+#     dialogIntro = f'\n  Welcome to the game!\n  Please make a selection:\n'
+#     dialogOptions = f'\n  Options go here\n'
+#     dialogExit = f'{boringline}\n  Press "Q" to quit'
+
+
+#     print(fancyline)
+#     print(dialogIntro)
+#     print(fancyline)
+#     print(dialogOptions)
+#     print(dialogExit)
+
+#     # request input from the user
+#     # needs to go after things that are printed otherwise it sits and waits for input
+#     userInput = input(userPrompt)
+
+
+# if _name_ == '_main_':
+# https://www.geeksforgeeks.org/what-does-the-if-__name__-__main__-do/
+
+
+# store user choice
+choice = 0
+choice_range = ["a","b","c","d"]
+
+# print text outside game loop to make sure it's working
+print(f"Game has loaded\n")
+
+# game loop:
+while choice != ("q" or "Q"):
+
+    # print out the menu
+    print(f"This is the game!")
+    print(f"Choose an option from: {choice_range}\n")
+    print(f"Press Q to quit\n")
+
+    # request user input
+    choice = str(input(f">>>")).lower()
+
+    # define quit condition
+    if choice == ("q"):
+        # print the quit message
+        print(f"Thanks for playing!")
+        break
+
+    #this choice does something
+    elif choice == ("5"):
+        print(f"You find the hidden treasure room!")
+
+    # define valid input to continue without error message
+    elif choice in choice_range:
+        # print the users choice (outcome)
+        print(f"You chose {choice}\n")
+
+    else:
+        # print an error message
+        print(f"Huh? Try a different command or press Q to quit.")
